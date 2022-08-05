@@ -4,12 +4,14 @@
 #
 Name     : btop
 Version  : 1.2.8
-Release  : 1
+Release  : 2
 URL      : https://github.com/aristocratos/btop/archive/refs/tags/v1.2.8.tar.gz
 Source0  : https://github.com/aristocratos/btop/archive/refs/tags/v1.2.8.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0
+Requires: btop-bin = %{version}-%{release}
+Requires: btop-data = %{version}-%{release}
 Requires: btop-license = %{version}-%{release}
 
 %description
@@ -17,6 +19,24 @@ Requires: btop-license = %{version}-%{release}
 <a href="https://repology.org/project/btop/versions">
 <img src="https://repology.org/badge/vertical-allrepos/btop.svg" alt="Packaging status" align="right">
 </a>
+
+%package bin
+Summary: bin components for the btop package.
+Group: Binaries
+Requires: btop-data = %{version}-%{release}
+Requires: btop-license = %{version}-%{release}
+
+%description bin
+bin components for the btop package.
+
+
+%package data
+Summary: data components for the btop package.
+Group: Data
+
+%description data
+data components for the btop package.
+
 
 %package license
 Summary: license components for the btop package.
@@ -35,7 +55,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1659665526
+export SOURCE_DATE_EPOCH=1659665780
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -48,14 +68,48 @@ make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1659665526
+export SOURCE_DATE_EPOCH=1659665780
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/btop
 cp %{_builddir}/btop-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/btop/2b8b815229aa8a61e483fb4ba0588b8b6c491890
-%make_install
+%make_install PREFIX=/usr
 
 %files
 %defattr(-,root,root,-)
+
+%files bin
+%defattr(-,root,root,-)
+/usr/bin/btop
+
+%files data
+%defattr(-,root,root,-)
+/usr/share/applications/btop.desktop
+/usr/share/btop/README.md
+/usr/share/btop/themes/HotPurpleTrafficLight.theme
+/usr/share/btop/themes/adapta.theme
+/usr/share/btop/themes/ayu.theme
+/usr/share/btop/themes/dracula.theme
+/usr/share/btop/themes/dusklight.theme
+/usr/share/btop/themes/everforest-dark-hard.theme
+/usr/share/btop/themes/flat-remix-light.theme
+/usr/share/btop/themes/flat-remix.theme
+/usr/share/btop/themes/greyscale.theme
+/usr/share/btop/themes/gruvbox_dark.theme
+/usr/share/btop/themes/gruvbox_dark_v2.theme
+/usr/share/btop/themes/gruvbox_material_dark.theme
+/usr/share/btop/themes/kyli0x.theme
+/usr/share/btop/themes/matcha-dark-sea.theme
+/usr/share/btop/themes/monokai.theme
+/usr/share/btop/themes/night-owl.theme
+/usr/share/btop/themes/nord.theme
+/usr/share/btop/themes/onedark.theme
+/usr/share/btop/themes/solarized_dark.theme
+/usr/share/btop/themes/tokyo-night.theme
+/usr/share/btop/themes/tokyo-storm.theme
+/usr/share/btop/themes/tomorrow-night.theme
+/usr/share/btop/themes/whiteout.theme
+/usr/share/icons/hicolor/48x48/apps/btop.png
+/usr/share/icons/hicolor/scalable/apps/btop.svg
 
 %files license
 %defattr(0644,root,root,0755)
