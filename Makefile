@@ -1,5 +1,5 @@
 PKG_NAME := btop
-URL = https://github.com/aristocratos/btop/archive/refs/tags/v1.2.8.tar.gz
+URL = https://github.com/aristocratos/btop/archive/v1.2.9/btop-1.2.9.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
