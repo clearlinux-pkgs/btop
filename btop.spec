@@ -6,10 +6,10 @@
 # autospec commit: 9594167
 #
 Name     : btop
-Version  : 1.4.2
-Release  : 13
-URL      : https://github.com/aristocratos/btop/archive/v1.4.2/btop-1.4.2.tar.gz
-Source0  : https://github.com/aristocratos/btop/archive/v1.4.2/btop-1.4.2.tar.gz
+Version  : 1.4.3
+Release  : 14
+URL      : https://github.com/aristocratos/btop/archive/v1.4.3/btop-1.4.3.tar.gz
+Source0  : https://github.com/aristocratos/btop/archive/v1.4.3/btop-1.4.3.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Apache-2.0 MIT
@@ -55,10 +55,10 @@ license components for the btop package.
 
 
 %prep
-%setup -q -n btop-1.4.2
-cd %{_builddir}/btop-1.4.2
+%setup -q -n btop-1.4.3
+cd %{_builddir}/btop-1.4.3
 pushd ..
-cp -a btop-1.4.2 buildavx2
+cp -a btop-1.4.3 buildavx2
 popd
 
 %build
@@ -66,7 +66,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1746196144
+export SOURCE_DATE_EPOCH=1747066926
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -129,7 +129,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1746196144
+export SOURCE_DATE_EPOCH=1747066926
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/btop
 cp %{_builddir}/btop-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/btop/2b8b815229aa8a61e483fb4ba0588b8b6c491890 || :
